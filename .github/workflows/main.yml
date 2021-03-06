@@ -1,4 +1,4 @@
-name: Publish poi container to GitHub Registry
+name: Publish tvheadend container to GitHub Registry
 
 on: push
 
@@ -16,14 +16,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build poi image
+      - name: Build tvheadend image
         run: docker build --tag $IMAGE_NAME .
 
       - name: Log into GitHub Container Registry
       # TODO: Create a PAT with `read:packages` and `write:packages` scopes and save it as an Actions secret `CR_PAT`
         run: echo "${{ secrets.CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Push poi image to GitHub Container Registry
+      - name: Push tvheadend image to GitHub Container Registry
         run: |
           IMAGE_ID=ghcr.io/${{ github.repository }}/$IMAGE_NAME
 
