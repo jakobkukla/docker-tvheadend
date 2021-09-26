@@ -1,0 +1,42 @@
+name: Update-Cron-Job
+
+on:  
+  schedule:
+    - cron: '45 13 * * *'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repository
+      - uses: actions/checkout@v2
+
+      - name: Check for updates
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const { data: ls } = await github.rest.packages.getPackageForUser({
+              package_type: 'container',
+              package_name: 'tvheadend',
+              username: 'linuxserver',
+            });
+            
+            const { data: jk } = await github.rest.packages.getPackageForUser({
+              package_type: 'container',
+              package_name: 'tvheadend',
+              username: 'jakobkukla',
+            });
+            
+            if (ls.updated_at > jk.updated_at) {
+              rest.actions.createWorkflowDispatch({
+                owner: 'jakobkukla',
+                repo 'docker-tvheadend',
+                workflow_id: 6452595,
+                ref: 'master',
+              });
+            }
