@@ -1,4 +1,4 @@
-name: Cron Updater
+name: Update
 
 on:  
   schedule:
@@ -31,7 +31,7 @@ jobs:
             if (ls.updated_at > jk.updated_at) {
               rest.actions.createWorkflowDispatch({
                 owner: 'jakobkukla',
-                repo 'docker-tvheadend',
+                repo: 'docker-tvheadend',
                 workflow_id: 6452595,
                 ref: 'master',
               });
