@@ -28,7 +28,7 @@ jobs:
               username: 'jakobkukla',
             });
             
-            if (ls.updated_at > jk.updated_at) {
+            if (ls.updated_at < jk.updated_at) {
               rest.actions.createWorkflowDispatch({
                 owner: 'jakobkukla',
                 repo: 'docker-tvheadend',
