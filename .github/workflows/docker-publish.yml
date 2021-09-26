@@ -38,7 +38,7 @@ jobs:
         id: baseupdatecheck
         uses: lucacome/docker-image-update-checker@v1.1.0
         with:
-          base-image: ghcr.io/linuxserver/tvheadend
+          base-image: linuxserver/tvheadend
           image: ghcr.io/jakobkukla/tvheadend
 
       # Login against a Docker registry except on PR
