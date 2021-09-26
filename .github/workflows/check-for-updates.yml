@@ -15,6 +15,7 @@ jobs:
       - name: Check for updates
         uses: actions/github-script@v5
         with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           script: |
             const { data: ls } = await github.rest.packages.getPackageForUser({
               package_type: 'container',
@@ -39,7 +40,5 @@ jobs:
                 if (response.status !== 204) {
                   core.setFailed(`create workflow_dispatch received status code ${response.status}`);
                 };
-              });
-              
-              console.log(result)
+              });             
             }
