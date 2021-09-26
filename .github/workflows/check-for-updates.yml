@@ -29,10 +29,12 @@ jobs:
             });
             
             if (ls.updated_at < jk.updated_at) {
-              github.rest.actions.createWorkflowDispatch({
+              const result = await github.rest.actions.createWorkflowDispatch({
                 owner: 'jakobkukla',
                 repo: 'docker-tvheadend',
                 workflow_id: 6452595,
                 ref: 'master',
               });
+              
+              console.log(result)
             }
