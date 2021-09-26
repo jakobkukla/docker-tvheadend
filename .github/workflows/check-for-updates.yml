@@ -1,4 +1,4 @@
-name: Update-Cron-Job
+name: Cron Updater
 
 on:  
   schedule:
