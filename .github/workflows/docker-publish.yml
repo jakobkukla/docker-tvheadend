@@ -33,13 +33,6 @@ jobs:
     steps:      
       - name: Checkout repository
         uses: actions/checkout@v2
-        
-      - name: Docker Image Update Checker
-        id: baseupdatecheck
-        uses: lucacome/docker-image-update-checker@v1.1.0
-        with:
-          base-image: linuxserver/tvheadend
-          image: ghcr.io/jakobkukla/tvheadend
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
