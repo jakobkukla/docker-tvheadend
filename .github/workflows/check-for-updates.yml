@@ -42,3 +42,5 @@ jobs:
                 };
               });             
             }
+      - name: Prevent GitHub actions from going stale
+        uses: gautamkrishnar/keepalive-workflow@v1
