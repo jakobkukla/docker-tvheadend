@@ -42,5 +42,7 @@ jobs:
                 };
               });             
             }
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Prevent GitHub actions from going stale
         uses: gautamkrishnar/keepalive-workflow@v1
